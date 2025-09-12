@@ -1,6 +1,7 @@
 ---
 title: 条款
-
+sidebar: false
+aside: false
 ---
 
 > **重要提示：请仔细阅读以下条款**

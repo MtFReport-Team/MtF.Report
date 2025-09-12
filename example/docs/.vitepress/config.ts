@@ -10,10 +10,6 @@ const nav: DefaultTheme.NavItem[] = [
     link: '/' 
   },
   { 
-    text: '药物百科', 
-    link: '/zh-cn/' 
-  },
-  { 
     text: '商店', 
     link: '/store/' 
   },
@@ -23,12 +19,12 @@ const nav: DefaultTheme.NavItem[] = [
   },
 ]
 
-// 兼容自定义主题的侧边栏配置
+// 默认侧边栏配置
 const baseConfig = {
   useTitleFromFrontmatter: true,
   useFolderTitleFromIndexFile: true,
   useFolderLinkFromIndexFile: true,
-  collapsed: false,
+  collapsed: true,
   documentRootPath: '/docs',
 } satisfies Partial<SidebarOptions>
 
@@ -36,29 +32,10 @@ const sidebarOptions = [
   {
     ...baseConfig,
     scanStartPath: 'zh-cn',
-    resolvePath: '/zh-cn',
+    resolvePath: '/zh-cn/',
     sortMenusByFrontmatterOrder: true,
   }
 ]
-
-// 标准侧边栏配置 - 只在/zh-cn/目录显示药物信息
-export const sidebar: DefaultTheme.Sidebar = {
-  '/zh-cn/': [
-    {
-      text: '药物信息',
-      collapsed: false,
-      items: [
-        {
-          text: '药物概述',
-          items: [
-            { text: '首页', link: '/zh-cn/' },
-            { text: '药物分类', link: '/zh-cn/categories' }
-          ]
-        }
-      ]
-    }
-  ]
-}
 
 const themeConfig: ThemeContext = {
   siteTitle: '药物百科',
@@ -66,12 +43,12 @@ const themeConfig: ThemeContext = {
   githubRepoLink: 'https://github.com/kazukokawagawa/drug_artist',
   siteLogo: '/public/logo.png',
   rootDir: 'docs',
-  include: ['/zh-cn'], // 包含所有需要处理的目录
+  include: ['zh-cn', 'store', 'terms'], // 包含所有需要处理的目录
   nav,
   sidebarOptions,
-  enableSuggestionBox: false,
-  HideReadingTime: true,
-  HideLastUpdated: true,
+  enableSuggestionBox: false, // 
+  HideReadingTime: true, 
+  HideLastUpdated: true, 
   HideAuthors: true,
   // fontsBaseUrl: 'http://localhost:8788', // For local development with wrangler pages dev
   disclaimerPaths: [
