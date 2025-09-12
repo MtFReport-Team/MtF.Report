@@ -1,6 +1,10 @@
-// 直接使用VitePress的默认主题，避免所有自定义主题带来的复杂性
-import DefaultTheme from 'vitepress/theme'
+// docs/.vitepress/theme/index.ts
+// https://vitepress.dev/guide/custom-theme
+import PtjsTheme from '@project-trans/vitepress-theme-project-trans/theme'
+import DefaultTheme from 'vitepress/theme-without-fonts'
+import 'uno.css'
+import './style.css'
 
 export default {
-  extends: DefaultTheme
+  extends: PtjsTheme,DefaultTheme
 }

@@ -16,8 +16,6 @@ export function generateSidebar() {
       sidebarMultiItem.items.sort(sidebarTitleSorter)
     }
   }
-  
-  
   return sidebar
 }
 
