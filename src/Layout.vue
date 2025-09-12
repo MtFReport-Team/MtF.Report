@@ -41,6 +41,7 @@ const { frontmatter } = useData()
       </template>
       <template #nav-screen-content-after>
         <NolebaseEnhancedReadabilitiesScreenMenu />
+        <a href="/zh-cn/" class="nav-link terms-link" style="display: block; padding: 8px 12px; color: #9f7aea; text-decoration: none;">药物百科</a>
         <a href="/terms/" class="nav-link terms-link" style="display: block; padding: 8px 12px; color: #9f7aea; text-decoration: none;">条款</a>
       </template>
       <Analytics />
@@ -52,5 +53,66 @@ const { frontmatter } = useData()
 :root {
   --vp-font-family-base: sans-serif;
   --vp-font-family-mono: monospace;
+}
+
+/* 响应式优化 */
+@media (max-width: 640px) {
+  /* 优化移动端字体大小 */
+  .vp-doc h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .vp-doc h2 {
+    font-size: 1.5rem;
+  }
+  
+  .vp-doc h3 {
+    font-size: 1.25rem;
+  }
+  
+  /* 优化移动端内容间距 */
+  .vp-doc p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* 优化药物卡片在移动端的显示 */
+  .drug-card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* 优化移动端按钮尺寸 */
+  .btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+  
+  /* 确保移动端表格可以水平滚动 */
+  .vp-doc table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  /* 优化移动端的图像大小 */
+  .vp-doc img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* 平板设备的响应式优化 */
+@media (max-width: 1024px) {
+  /* 确保侧边栏在平板上正常显示 */
+  .VPSidebar {
+    width: 240px;
+  }
+  
+  /* 调整内容区域的边距 */
+  .VPContent {
+    margin-left: 0;
+  }
 }
 </style>

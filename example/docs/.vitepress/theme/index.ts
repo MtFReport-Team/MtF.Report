@@ -1,9 +1,6 @@
-// docs/.vitepress/theme/index.ts
-// https://vitepress.dev/guide/custom-theme
-import PtjsTheme from '@project-trans/vitepress-theme-project-trans/theme'
-import 'uno.css'
-import './style.css'
+// 直接使用VitePress的默认主题，避免所有自定义主题带来的复杂性
+import DefaultTheme from 'vitepress/theme'
 
 export default {
-  extends: PtjsTheme
+  extends: DefaultTheme
 }

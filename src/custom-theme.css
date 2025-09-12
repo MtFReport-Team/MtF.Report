@@ -283,4 +283,44 @@
   .category-cards {
     grid-template-columns: 1fr;
   }
+  
+  /* 导航栏响应式设计 */
+  .VPSidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--vp-c-divider);
+  }
+  
+  .VPNavBar {
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  
+  .VPNavBar .title {
+    font-size: 1rem;
+  }
+  
+  /* 确保移动端菜单按钮可见 */
+  .VPNavBarHamburger {
+    display: block !important;
+  }
+  
+  /* 导航链接响应式调整 */
+  .VPNavBarMenuLink {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
+  
+  /* 内容区域响应式调整 */
+  .VPContent {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  /* 文档内容响应式调整 */
+  .vp-doc {
+    padding: 1rem;
+  }
 }

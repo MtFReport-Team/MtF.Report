@@ -2,7 +2,7 @@
 import type { PjtsThemeConfig } from '../config'
 import { NolebaseGitChangelog } from '@nolebase/vitepress-plugin-git-changelog/client'
 import { useData, useRoute } from 'vitepress'
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import { AppSBox, Disclaimer } from '../components'
 
 const route = useRoute()
@@ -31,7 +31,7 @@ watch(
 ) // 在组件挂载时立即执行一次，确保第一次渲染时 key 和 frontmatter 是正确的
 
 // 在组件挂载时更新 key 和 frontmatter
-// onMounted(updateKeyAndFrontmatter);
+onMounted(updateKeyAndFrontmatter);
 </script>
 
 <template>
