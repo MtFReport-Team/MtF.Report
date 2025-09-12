@@ -24,7 +24,7 @@ const baseConfig = {
   useTitleFromFrontmatter: true,
   useFolderTitleFromIndexFile: true,
   useFolderLinkFromIndexFile: true,
-  collapsed: true,
+  collapsed: false,
   documentRootPath: '/docs',
 } satisfies Partial<SidebarOptions>
 
