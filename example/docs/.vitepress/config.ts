@@ -29,7 +29,7 @@ const baseConfig = {
   useFolderTitleFromIndexFile: true,
   useFolderLinkFromIndexFile: true,
   collapsed: true,
-  documentRootPath: '/docs',
+  documentRootPath: './', // 使用相对路径，使其在不同环境下都能正常工作
 } satisfies Partial<SidebarOptions>
 
 const sidebarOptions = [
