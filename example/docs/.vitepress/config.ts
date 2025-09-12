@@ -17,19 +17,6 @@ const nav: DefaultTheme.NavItem[] = [
     text: '条款', 
     link: '/terms/' 
   },
-  // 添加图标链接
-  { 
-    icon: 'i-octicon:twitter', 
-    link: 'https://twitter.com/your-account',
-    target: '_blank',
-    rel: 'noopener noreferrer'
-  },
-  { 
-    icon: 'i-octicon:instagram', 
-    link: 'https://instagram.com/your-account',
-    target: '_blank',
-    rel: 'noopener noreferrer'
-  }
 ]
 
 // 默认侧边栏配置
@@ -53,7 +40,7 @@ const sidebarOptions = [
 const themeConfig: ThemeContext = {
   siteTitle: '药物百科',
   siteDescription: '药物百科 是一个专注于提供高质量药物信息的平台。',
-  githubRepoLink: 'https://github.com/your-repo',
+  githubRepoLink: 'https://github.com/kazukokawagawa/drug_artist',
   siteLogo: '/public/logo.png',
   rootDir: 'docs',
   include: ['zh-cn', 'store', 'terms'], // 包含所有需要处理的目录
