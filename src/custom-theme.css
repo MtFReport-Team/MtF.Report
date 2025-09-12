@@ -284,43 +284,48 @@
     grid-template-columns: 1fr;
   }
   
-  /* 导航栏响应式设计 */
-  .VPSidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-    border-right: none;
-    border-bottom: 1px solid var(--vp-c-divider);
-  }
-  
+  /* 导航栏手机端适配 */
   .VPNavBar {
-    height: auto;
-    padding: 0.5rem 1rem;
+    padding: 0 12px;
   }
   
-  .VPNavBar .title {
+  .VPNavBarTitle {
     font-size: 1rem;
   }
   
-  /* 确保移动端菜单按钮可见 */
-  .VPNavBarHamburger {
-    display: block !important;
+  /* 侧边栏在小屏幕上的优化 */
+  .VPSidebar {
+    width: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
   }
   
-  /* 导航链接响应式调整 */
-  .VPNavBarMenuLink {
-    font-size: 0.875rem;
-    padding: 0.5rem;
+  .VPSidebar.is-open {
+    transform: translateX(0);
   }
   
-  /* 内容区域响应式调整 */
-  .VPContent {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+  /* 优化按钮在手机上的显示 */
+  .btn {
+    width: 100%;
+    text-align: center;
   }
   
-  /* 文档内容响应式调整 */
-  .vp-doc {
+  /* 优化卡片间距 */
+  .drug-card {
+    margin-bottom: 1rem;
     padding: 1rem;
+  }
+  
+  /* 优化字体大小 */
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
   }
 }
