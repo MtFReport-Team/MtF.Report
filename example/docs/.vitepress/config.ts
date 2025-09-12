@@ -36,13 +36,13 @@ const sidebarOptions = [
   {
     ...baseConfig,
     scanStartPath: 'zh-cn',
-    resolvePath: 'zh-cn',
+    resolvePath: '/zh-cn',
     sortMenusByFrontmatterOrder: true,
   }
 ]
 
 // 标准侧边栏配置 - 只在/zh-cn/目录显示药物信息
-const sidebar: DefaultTheme.Sidebar = {
+export const sidebar: DefaultTheme.Sidebar = {
   '/zh-cn/': [
     {
       text: '药物信息',

@@ -1,6 +1,5 @@
 ---
 title: RC商店
-sidebar: false
 ---
 
 <style scoped>
