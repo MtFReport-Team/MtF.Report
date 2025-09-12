@@ -1,3 +1,5 @@
+import type { SidebarOptions } from '@project-trans/vitepress-theme-project-trans/theme'
+import type { ThemeContext } from '@project-trans/vitepress-theme-project-trans/utils'
 import type { DefaultTheme } from 'vitepress'
 import genConfig from '@project-trans/vitepress-theme-project-trans/config'
 import { withThemeContext } from '@project-trans/vitepress-theme-project-trans/utils'
@@ -21,6 +23,24 @@ const nav: DefaultTheme.NavItem[] = [
   },
 ]
 
+// 兼容自定义主题的侧边栏配置
+const baseConfig = {
+  useTitleFromFrontmatter: true,
+  useFolderTitleFromIndexFile: true,
+  useFolderLinkFromIndexFile: true,
+  collapsed: false,
+  documentRootPath: '/docs',
+} satisfies Partial<SidebarOptions>
+
+const sidebarOptions = [
+  {
+    ...baseConfig,
+    scanStartPath: 'zh-cn',
+    resolvePath: '/zh-cn/',
+    sortMenusByFrontmatterOrder: true,
+  }
+]
+
 // 标准侧边栏配置 - 只在/zh-cn/目录显示药物信息
 const sidebar: DefaultTheme.Sidebar = {
   '/zh-cn/': [
@@ -40,7 +60,7 @@ const sidebar: DefaultTheme.Sidebar = {
   ]
 }
 
-const themeConfig = {
+const themeConfig: ThemeContext = {
   siteTitle: '药物百科',
   siteDescription: '药物百科 是一个专注于提供高质量药物信息的平台。',
   githubRepoLink: 'https://github.com/kazukokawagawa/drug_artist',
@@ -48,6 +68,7 @@ const themeConfig = {
   rootDir: 'docs',
   include: ['zh-cn'], // 包含所有需要处理的目录
   nav,
+  sidebarOptions,
   sidebar,
   enableSuggestionBox: false,
   HideReadingTime: true,
