@@ -37,10 +37,3 @@ function sidebarTitleSorter(infoA: SidebarItem, infoB: SidebarItem): number {
     numeric: true,
   })
 }
-
-{
-  ...baseConfig,
-  scanStartPath: 'store',
-  resolvePath: '/store/',
-  sortMenusByFrontmatterOrder: true
-}
