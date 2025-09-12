@@ -1,7 +1,6 @@
 ---
 title: RC商店
 sidebar: false
-aside: false
 ---
 
 <style scoped>
