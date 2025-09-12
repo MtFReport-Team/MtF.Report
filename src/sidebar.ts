@@ -17,10 +17,6 @@ export function generateSidebar() {
     }
   }
   
-  // 对于药品商店页面，移除侧边栏
-  if (sidebar['/store/']) {
-    delete sidebar['/store/']
-  }
   
   return sidebar
 }
