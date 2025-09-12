@@ -10,6 +10,10 @@ const nav: DefaultTheme.NavItem[] = [
     link: '/' 
   },
   { 
+    text: '药物百科', 
+    link: '/zh-cn/' 
+  },
+  { 
     text: '商店', 
     link: '/store/' 
   },
