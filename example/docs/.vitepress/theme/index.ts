@@ -6,5 +6,5 @@ import 'uno.css'
 import './style.css'
 
 export default {
-  extends: PtjsTheme,DefaultTheme
+  extends: PtjsTheme
 }
