@@ -77,5 +77,70 @@ const { frontmatter, theme } = useData()
 :root {
   --vp-font-family-base: sans-serif;
   --vp-font-family-mono: monospace;
+  
+  /* 明亮模式 - 白紫配色 */
+  --vp-c-brand-1: #9c27b0;    /* 深紫色 - 文本和主要元素 */
+  --vp-c-brand-2: #ba68c8;    /* 中紫色 - 悬停状态 */
+  --vp-c-brand-3: #e1bee7;    /* 浅紫色 - 背景和按钮 */
+  --vp-c-brand-soft: rgb(156 39 176 / 16%);
+  --main-color: #9c27b0;
+  
+  /* 全局背景渐变光晕变量 */
+  --global-bg-gradient: linear-gradient(-45deg, #9c27b0 30%, #ffffff 50%, #f3e5f5 70%);
+  --global-bg-filter: blur(44px);
+  --global-bg-opacity: 0.3;
+}
+
+.dark:root {
+  /* 深色模式 - 深紫配色 */
+  --vp-c-brand-1: #c084fc;    /* 亮紫色 - 文本和主要元素 */
+  --vp-c-brand-2: #a855f7;    /* 中紫色 - 悬停状态 */
+  --vp-c-brand-3: #7e22ce;    /* 深紫色 - 背景和按钮 */
+  --vp-c-brand-soft: rgb(192 132 252 / 16%);
+  --main-color: #c084fc;
+  
+  /* 深色模式全局背景 */
+  --global-bg-gradient: linear-gradient(-45deg, #c084fc 30%, #1e1e2e 50%, #4338ca 75%);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --global-bg-filter: blur(56px);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --global-bg-filter: blur(68px);
+  }
+}
+
+/* 创建全局背景容器样式 */
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* 使用伪元素实现全局背景光晕 */
+body::before {
+  content: "";
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: var(--global-bg-gradient);
+  filter: var(--global-bg-filter);
+  opacity: var(--global-bg-opacity);
+  z-index: -1;
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+
+/* 确保所有主要内容容器在背景之上 */
+.vp-app,
+.vp-layout {
+  position: relative;
+  z-index: 1;
 }
 </style>
