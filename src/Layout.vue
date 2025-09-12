@@ -110,9 +110,9 @@ const { frontmatter } = useData()
     width: 240px;
   }
   
-  /* 调整内容区域的边距 */
+  /* 调整内容区域的边距 - 不设置margin-left: 0来避免覆盖侧边栏 */
   .VPContent {
-    margin-left: 0;
+    padding: 0 1rem;
   }
 }
 </style>

@@ -29,7 +29,7 @@ const baseConfig = {
   useFolderTitleFromIndexFile: true,
   useFolderLinkFromIndexFile: true,
   collapsed: true,
-  documentRootPath: './', // 使用相对路径，使其在不同环境下都能正常工作
+  documentRootPath: process.env.NODE_ENV === 'production' ? '/drug_artist/' : './', // 根据环境使用不同的根路径
 } satisfies Partial<SidebarOptions>
 
 const sidebarOptions = [
