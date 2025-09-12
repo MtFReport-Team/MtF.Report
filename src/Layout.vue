@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
 import {
   NolebaseEnhancedReadabilitiesMenu,
   NolebaseEnhancedReadabilitiesScreenMenu,
@@ -17,34 +16,15 @@ import FontSwitcher from './components/FontSwitcher/FontSwitcher.vue'
 import PageInfo from './components/PageInfo.vue'
 import { Analytics } from '@vercel/analytics/vue';
 
-const { Layout, VPSidebarItems } = DefaultTheme
-const { frontmatter, theme, page } = useData()
-
-// 侧边栏状态管理
-const sidebarOpen = ref(true)
-
-// 切换侧边栏显示状态
-function toggleSidebar() {
-  sidebarOpen.value = !sidebarOpen.value
-}
+const { Layout } = DefaultTheme
+const { frontmatter, theme } = useData()
 </script>
 
 <template>
   <Analytics />
   <AppearanceToggle>
     <Layout>
-      <!-- 确保侧边栏始终显示 -->
-      <template #aside>
-        <aside class="vp-sidebar vp-sidebar-open" :class="{ 'vp-sidebar-toggled': sidebarOpen }">
-          <div class="vp-sidebar-inner">
-            <div class="vp-sidebar-scroll-area">
-              <VPSidebarItems />
-            </div>
-          </div>
-        </aside>
-      </template>
-      
-      <!-- 确保导航栏始终显示 -->
+      <!-- 导航栏自定义 -->
       <template #header>
         <header class="vp-layout__header">
           <div class="vp-layout__header-content">
@@ -60,15 +40,6 @@ function toggleSidebar() {
               </RouterLink>
             </nav>
             <div class="vp-header__actions">
-              <button class="vp-button vp-button-icon" @click="toggleSidebar">
-                <span class="vp-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                  </svg>
-                </span>
-              </button>
               <NolebaseEnhancedReadabilitiesMenu />
               <FontSwitcher />
               <a href="/terms/" class="nav-link terms-link" style="margin-left: 8px; color: #9f7aea; text-decoration: none;">条款</a>
