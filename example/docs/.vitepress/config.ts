@@ -5,29 +5,34 @@ import genConfig from '@project-trans/vitepress-theme-project-trans/config'
 import { withThemeContext } from '@project-trans/vitepress-theme-project-trans/utils'
 
 const nav: DefaultTheme.NavItem[] = [
-  {
-    text: '进入主页',
-    link: '/zh-cn/',
+  { 
+    text: '首页', 
+    link: '/' 
   },
-//  {
-//    text: '贡献指南',
-//    items: [
-//      {
-//        text: '校园版块投稿指南',
-//        link: '/contributor-guide/doc.md',
- //     },
- //     {
- //       text: '其他投稿指南',
- //       link: '/contributor-guide/other.md',
- //     },
- //     {
- //       text: '校园版块贡献模板',
- //       link: '/contributor-guide/docTemplate.md',
-  //    },
-  //  ],
-  //},
+  { 
+    text: '商店', 
+    link: '/store/' 
+  },
+  { 
+    text: '条款', 
+    link: '/terms/' 
+  },
+  // 添加图标链接
+  { 
+    icon: 'i-octicon:twitter', 
+    link: 'https://twitter.com/your-account',
+    target: '_blank',
+    rel: 'noopener noreferrer'
+  },
+  { 
+    icon: 'i-octicon:instagram', 
+    link: 'https://instagram.com/your-account',
+    target: '_blank',
+    rel: 'noopener noreferrer'
+  }
 ]
 
+// 默认侧边栏配置
 const baseConfig = {
   useTitleFromFrontmatter: true,
   useFolderTitleFromIndexFile: true,
@@ -46,30 +51,23 @@ const sidebarOptions = [
 ]
 
 const themeConfig: ThemeContext = {
-  siteTitle: 'Drug_artist',
-  siteDescription: '副标题',
-  // baseUrl: '/',
-  /** Repo */
-  githubRepoLink: 'https://github.com/kazukokawagawa/drug_artist',
-  /** vitepress 根目录 */
+  siteTitle: '药物百科',
+  siteDescription: '药物百科 是一个专注于提供高质量药物信息的平台。',
+  githubRepoLink: 'https://github.com/your-repo',
+  siteLogo: '/public/logo.png',
   rootDir: 'docs',
-  /** 文档所在目录（目前似未使用此项） */
-  include: ['zh-cn'],
+  include: ['zh-cn', 'store', 'terms'], // 包含所有需要处理的目录
   nav,
   sidebarOptions,
-  // enableChangeLog: false,
-  enableSuggestionBox: false,
-  HideReadingTime: true, /* 隐藏字数和预计阅读时间 */
-  HideLastUpdated: true, /* 隐藏最后更新时间 */
-  HideAuthors: true, /* 隐藏作者信息 */
+  enableSuggestionBox: false, // 
+  HideReadingTime: true, 
+  HideLastUpdated: true, 
+  HideAuthors: true,
   // fontsBaseUrl: 'http://localhost:8788', // For local development with wrangler pages dev
   disclaimerPaths: [
     {
       path: '/zh-cn/',
       summaryHtml: 'Drug_artist 中的内容，仅供参考。可能存在过时或不准确的信息，请谨慎甄别。',
-//      detailHtml: '<p>RLE.wiki「大学指南」中的内容，仅供参考。可能存在过时或不准确的信息，请谨慎甄别。</p>'
-//        + '<p>「大学指南」板块中的内容，多数来自于读者投稿，并经编辑简单整理和形式审查后登载，主要体现其投稿者主观观点。不代表 RLE.wiki 编辑团队及我们的任何相关维护人员立场。</p>'
-//        + '<p>若存在任何有误或不当内容，请联系 <a href="mailto:rlewiki@project-trans.org">rlewiki@project-trans.org</a>。</p>',
     },
   ],
   enableDisclaimer: true,
@@ -80,15 +78,9 @@ const themeConfig: ThemeContext = {
     root: {
       label: '中文',
       lang: 'zh',
-      link: '/zh-cn/',
+      link: '/',
     }
   },
-  // 添加自定义 head 元素
-  // additionalHead: [
-  //   ['link', { rel: 'icon', href: 'https://rle.wiki/logo-with-shadow.png' }],
-  //   ['meta', { name: 'theme-color', content: '#ffffff' }],
-  //   ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
-  // ],
 }
 
 // https://vitepress.dev/reference/site-config
@@ -97,8 +89,8 @@ export default withThemeContext(themeConfig, () => {
     ...genConfig(),
     outDir: '../dist',
     sitemap: {
-//    hostname: 'https://mtf.report',
+
     lastmodDateOnly: true
-  }
+    },
   }
 })

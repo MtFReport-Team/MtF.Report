@@ -13,6 +13,7 @@ import { onMounted } from 'vue'
 
 import Layout from './Layout.vue'
 import './style.css'
+import './custom-theme.css' // 添加这行
 
 import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
 

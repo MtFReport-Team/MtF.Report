@@ -177,46 +177,47 @@ function genConfig() {
         prev: '上一页',
         next: '下一页',
       },
-      search: {
-        provider: 'local',
-        options: {
-          locales: {
-            root: {
-              translations: {
-                button: {
-                  buttonText: '搜索文档',
-                  buttonAriaLabel: '搜索文档',
-                },
-                modal: {
-                  noResultsText: '无法找到相关结果',
-                  resetButtonTitle: '清除查询条件',
-                  displayDetails: '显示详细列表',
-                  footer: {
-                    selectText: '选择',
-                    navigateText: '切换',
-                    closeText: '关闭',
-                    // 无障碍（ARIA）标签，用于描述键盘导航操作
-                    navigateUpKeyAriaLabel: '上箭头',
-                    navigateDownKeyAriaLabel: '下箭头',
-                    selectKeyAriaLabel: '回车',
-                    closeKeyAriaLabel: '退出',
-                  },
-                },
-              },
-            },
-          },
-          // Add title field in frontmatter to search
-          // You can exclude a page from search by adding search: false to the page's frontmatter.
-          _render(src, env, md) {
-            if (env.frontmatter?.search === false)
-              return ''
-            let html = md.render(src, env)
-            if (env.frontmatter?.title)
-              html = md.render(`# ${env.frontmatter.title}\n`) + html
-            return html
-          },
-        },
-      },
+      // 注释或删除搜索配置
+      // search: {
+      //   provider: 'local',
+      //   options: {
+      //     locales: {
+      //       root: {
+      //         translations: {
+      //           button: {
+      //             buttonText: '搜索文档',
+      //             buttonAriaLabel: '搜索文档',
+      //           },
+      //           modal: {
+      //             noResultsText: '无法找到相关结果',
+      //             resetButtonTitle: '清除查询条件',
+      //             displayDetails: '显示详细列表',
+      //             footer: {
+      //               selectText: '选择',
+      //               navigateText: '切换',
+      //               closeText: '关闭',
+      //               // 无障碍（ARIA）标签，用于描述键盘导航操作
+      //               navigateUpKeyAriaLabel: '上箭头',
+      //               navigateDownKeyAriaLabel: '下箭头',
+      //               selectKeyAriaLabel: '回车',
+      //               closeKeyAriaLabel: '退出',
+      //             },
+      //           },
+      //         },
+      //       },
+      //     },
+      //     // Add title field in frontmatter to search
+      //     // You can exclude a page from search by adding search: false to the page's frontmatter.
+      //     _render(src, env, md) {
+      //       if (env.frontmatter?.search === false)
+      //         return ''
+      //       let html = md.render(src, env)
+      //       if (env.frontmatter?.title)
+      //         html = md.render(`# ${env.frontmatter.title}\n`) + html
+      //       return html
+      //     },
+      //   },
+      // },
       fontsBaseUrl,
     },
     locales, // i18n

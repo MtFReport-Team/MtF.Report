@@ -16,6 +16,12 @@ export function generateSidebar() {
       sidebarMultiItem.items.sort(sidebarTitleSorter)
     }
   }
+  
+  // 对于药品商店页面，移除侧边栏
+  if (sidebar['/store/']) {
+    delete sidebar['/store/']
+  }
+  
   return sidebar
 }
 
@@ -30,4 +36,11 @@ function sidebarTitleSorter(infoA: SidebarItem, infoB: SidebarItem): number {
   return infoANfc.localeCompare(infoBNfc, 'zh', {
     numeric: true,
   })
+}
+
+{
+  ...baseConfig,
+  scanStartPath: 'store',
+  resolvePath: '/store/',
+  sortMenusByFrontmatterOrder: true
 }

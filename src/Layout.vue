@@ -37,9 +37,11 @@ const { frontmatter } = useData()
       <template #nav-bar-content-after>
         <NolebaseEnhancedReadabilitiesMenu />
         <FontSwitcher />
+        <a href="/terms/" class="nav-link terms-link" style="margin-left: 8px; color: #9f7aea; text-decoration: none;">条款</a>
       </template>
       <template #nav-screen-content-after>
         <NolebaseEnhancedReadabilitiesScreenMenu />
+        <a href="/terms/" class="nav-link terms-link" style="display: block; padding: 8px 12px; color: #9f7aea; text-decoration: none;">条款</a>
       </template>
       <Analytics />
     </Layout>
