@@ -1,5 +1,4 @@
 ---
-layout: home
 
 hero:
   name: "Drug.artist"
