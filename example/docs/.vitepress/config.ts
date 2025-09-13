@@ -5,13 +5,9 @@ import genConfig from '@project-trans/vitepress-theme-project-trans/config'
 import { withThemeContext } from '@project-trans/vitepress-theme-project-trans/utils'
 
 const nav: DefaultTheme.NavItem[] = [
-  { 
-    text: '首页', 
-    link: '/' 
-  },
-  { 
-    text: '商店', 
-    link: '/store/' 
+  {
+    text: '首页',
+    link: '/'
   }
 ]
 
@@ -39,7 +35,7 @@ const themeConfig: ThemeContext = {
   githubRepoLink: 'https://github.com/kazukokawagawa/drug_artist',
   siteLogo: '/public/logo.png',
   rootDir: 'docs',
-  include: ['zh-cn', 'terms'], // 包含所有需要处理的目录
+  include: ['zh-cn'], // 包含所有需要处理的目录
   nav,
   sidebarOptions,
   enableSuggestionBox: false, // 
