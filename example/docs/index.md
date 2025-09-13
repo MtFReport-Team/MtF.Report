@@ -9,9 +9,6 @@ hero:
     - theme: brand
       text:  💜进入主页
       link: /zh-cn/
-    - theme: brand
-      text:  💜进入商店
-      link: /store/
   image:
     src: ./logo.png
     alt: logo
