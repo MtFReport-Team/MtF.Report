@@ -6,8 +6,8 @@ import { withThemeContext } from '@project-trans/vitepress-theme-project-trans/u
 
 const nav: DefaultTheme.NavItem[] = [
   {
-    text: '首页',
-    link: '/'
+    text: '进入主页',
+    link: '/zh-cn/',
   }
 ]
 
@@ -29,20 +29,17 @@ const sidebarOptions = [
   }
 ]
 
-const themeConfig: ThemeContext = {
-  siteTitle: '药物百科',
-  siteDescription: '药物百科 是一个专注于提供高质量药物信息的平台。',
+  const themeConfig: ThemeContext = {
+  siteTitle: 'Drug_artist',
+   siteDescription: '药物百科 是一个专注于提供高质量药物信息的平台。',
   githubRepoLink: 'https://github.com/kazukokawagawa/drug_artist',
-  siteLogo: '/public/logo.png',
   rootDir: 'docs',
-  include: ['zh-cn'], // 包含所有需要处理的目录
-  nav,
+  include: ['zh-cn'],
   sidebarOptions,
-  enableSuggestionBox: false, // 
+  enableSuggestionBox: false,
   HideReadingTime: true, 
-  HideLastUpdated: true, 
-  HideAuthors: true,
-  // fontsBaseUrl: 'http://localhost:8788', // For local development with wrangler pages dev
+  HideLastUpdated: true,
+  HideAuthors: true, 
   disclaimerPaths: [
     {
       path: '/zh-cn/',
@@ -68,8 +65,7 @@ export default withThemeContext(themeConfig, () => {
     ...genConfig(),
     outDir: '../dist',
     sitemap: {
-
     lastmodDateOnly: true
-    },
+  }
   }
 })
