@@ -7,7 +7,7 @@ hero:
 
   actions:
     - theme: brand
-      text:  💜进入主页
+      text:  💜进入主页1
       link: /zh-cn/
   image:
     src: ./logo.png
