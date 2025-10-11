@@ -8,12 +8,16 @@
     "preview": "vitepress preview example/docs"
   },
   "dependencies": {
-    "@project-trans/vitepress-theme-project-trans": "0.8.0"
+    "@project-trans/vitepress-theme-project-trans": "0.8.0",
+    "unplugin-vue-components": "^29.1.0"
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.2.7",
     "@iconify-json/icon-park-outline": "^1.2.2",
     "@iconify-json/octicon": "^1.2.4",
+    "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.18.0",
+    "@nolebase/vitepress-plugin-git-changelog": "^2.18.0",
+    "@vercel/analytics": "^1.5.0",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vitejs/plugin-vue-jsx": "^4.1.1",
     "@vueuse/core": "^12.7.0",
@@ -21,10 +25,7 @@
     "vite": "^6.1.0",
     "vitepress": "^1.6.3",
     "vitepress-sidebar": "^1.31.0",
-    "vue": "^3.5.13",
-    "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.18.0",
-    "@nolebase/vitepress-plugin-git-changelog": "^2.18.0",
-    "@vercel/analytics": "^1.5.0"
+    "vue": "^3.5.13"
   },
   "pnpm": {
     "peerDependencyRules": {
