@@ -34,13 +34,13 @@ const baseConfig = {
   useFolderTitleFromIndexFile: true,
   useFolderLinkFromIndexFile: true,
   collapsed: true,
-  documentRootPath: '/docs',
+  documentRootPath: '', // 空字符串表示当前目录
 } satisfies Partial<SidebarOptions>
 
 const sidebarOptions = [
   {
     ...baseConfig,
-    scanStartPath: 'zh-cn',
+    scanStartPath: 'docs/zh-cn',
     resolvePath: '/zh-cn/',
     sortMenusByFrontmatterOrder: true,
   }
