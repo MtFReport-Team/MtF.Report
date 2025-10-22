@@ -3,6 +3,7 @@ import type { ThemeContext } from '@project-trans/vitepress-theme-project-trans/
 import type { DefaultTheme } from 'vitepress'
 import genConfig from '@project-trans/vitepress-theme-project-trans/config'
 import { withThemeContext } from '@project-trans/vitepress-theme-project-trans/utils'
+import UnoCSS from 'unocss/vite'
 
 const nav: DefaultTheme.NavItem[] = [
   {
@@ -47,19 +48,18 @@ const sidebarOptions = [
 
 const themeConfig: ThemeContext = {
   siteTitle: 'Drug_artist',
-  siteDescription: '药物百科 是一个专注于提供高质量药物信息的平台。',
+  siteDescription: '副标题',
   // baseUrl: '/',
   /** Repo */
   githubRepoLink: 'https://github.com/kazukokawagawa/drug_artist',
   /** vitepress 根目录 */
-  rootDir: 'docs',
+  rootDir: '.', // 使用当前目录作为根目录
   /** 文档所在目录（目前似未使用此项） */
   include: ['zh-cn'],
   nav,
   sidebarOptions,
   // enableChangeLog: false,
   enableSuggestionBox: false,
-  enableChangeLog: false, /* 禁用 git-changelog 插件 */
   HideReadingTime: true, /* 隐藏字数和预计阅读时间 */
   HideLastUpdated: true, /* 隐藏最后更新时间 */
   HideAuthors: true, /* 隐藏作者信息 */
@@ -93,13 +93,86 @@ const themeConfig: ThemeContext = {
 }
 
 // https://vitepress.dev/reference/site-config
-export default withThemeContext(themeConfig, () => {
+// 创建一个自定义插件来处理虚拟模块
+function virtualModulePlugin() {
   return {
-    ...genConfig(),
+    name: 'virtual-module-plugin',
+    resolveId(id) {
+      if (id === 'virtual:nolebase-git-changelog') {
+        return id; // 标记为已解析
+      }
+      return null;
+    },
+    load(id) {
+      if (id === 'virtual:nolebase-git-changelog') {
+        // 返回一个空模块
+        return 'export default {};';
+      }
+      return null;
+    }
+  };
+}
+
+export default withThemeContext(themeConfig, () => {
+  // 重新使用genConfig()获取必要的配置支持
+  const config = genConfig();
+  
+  return {
+    ...config,
     outDir: '../dist',
     sitemap: {
 //    hostname: 'https://mtf.report',
     lastmodDateOnly: true
-  }
+  },
+    vite: {
+      ...config.vite,
+      plugins: [
+        ...(config.vite?.plugins || []),
+        virtualModulePlugin(), // 添加虚拟模块处理插件
+        UnoCSS(), // 添加UnoCSS插件
+      ],
+      optimizeDeps: {
+        ...config.vite?.optimizeDeps,
+        include: [
+          ...(config.vite?.optimizeDeps?.include || []),
+          '@project-trans/vitepress-theme-project-trans'
+        ],
+        esbuildOptions: {
+          ...config.vite?.optimizeDeps?.esbuildOptions,
+          loader: {
+            ...config.vite?.optimizeDeps?.esbuildOptions?.loader,
+            '.vue': 'js'
+          }
+        }
+      },
+      ssr: {
+        ...config.vite?.ssr,
+        noExternal: [
+          ...(config.vite?.ssr?.noExternal || []),
+          '@project-trans/vitepress-theme-project-trans'
+        ]
+      }
+    },
+    build: {
+      ...config.build,
+      rollupOptions: {
+        ...config.build?.rollupOptions,
+        external: [
+          ...(config.build?.rollupOptions?.external || []),
+          /^virtual:/
+        ],
+        onwarn(warning, warn) {
+          // 忽略特定警告
+          if (warning.code === 'MODULE_NOT_FOUND') {
+            return;
+          }
+          if (config.build?.rollupOptions?.onwarn) {
+            config.build.rollupOptions.onwarn(warning, warn);
+          } else {
+            warn(warning);
+          }
+        }
+      }
+    }
   }
 })

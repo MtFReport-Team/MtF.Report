@@ -11,6 +11,9 @@
     "@project-trans/vitepress-theme-project-trans": "0.8.0"
   },
   "devDependencies": {
+    "@unocss/reset": "^66.5.4",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "unocss": "^66.5.4",
     "vitepress": "^1.6.3"
   }
 }
