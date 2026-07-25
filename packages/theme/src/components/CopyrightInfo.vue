@@ -4,7 +4,8 @@ import { useData, useRoute } from 'vitepress' // 获取路由信息
 import { computed } from 'vue'
 import { data } from '../plugins/CopyrightLoader.data'
 
-const orgName = useData().theme.value.org
+const { site, theme } = useData()
+const orgName = theme.value.org || site.value.title || '本站'
 
 const route = useRoute() // 获取当前路由对象
 
@@ -84,7 +85,7 @@ const displayAuthors = computed(() => {
           许可下使用
         </span>
         <span v-else-if="attrs?.copyright?.license">
-          ，MtF.Report 在
+          ，{{ orgName }} 在
           <a
             v-if="attrs?.copyright?.licenseUrl"
             :href="attrs.copyright.licenseUrl"

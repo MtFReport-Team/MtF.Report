@@ -17,13 +17,13 @@ export interface LocalesConfig {
   link?: string
 }
 
-export type HeadConfig =
-  | [string, Record<string, string>]
-  | [string, Record<string, string>, string]
+export type HeadConfig
+  = | [string, Record<string, string>]
+    | [string, Record<string, string>, string]
 
 export interface ThemeContext {
   siteTitle: string
-  siteLogo: string
+  siteLogo?: string
   SiteTitle?: string
   baseUrl?: string
   siteDescription: string
@@ -33,6 +33,8 @@ export interface ThemeContext {
   nav: NavConfig
   sidebarOptions: VitePressSidebarOptions[]
   enableSuggestionBox?: boolean
+  enableAnalytics?: boolean
+  enableFontSwitcher?: boolean
   enableChangeLog?: boolean
   sitePattern?: string
   org?: string

@@ -3,6 +3,89 @@
  * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
  */
 
+@font-face {
+  font-family: 'vivosans';
+  src: url('/fonts/vivoSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'vivosans';
+  src: url('/fonts/vivoSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'vivosans';
+  src: url('/fonts/vivoSans-DemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'vivosans';
+  src: url('/fonts/vivoSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'vivosans';
+  src: url('/fonts/vivoSans-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'vivosans';
+  src: url('/fonts/vivoSans-Heavy.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --main-font: 'vivosans', sans-serif;
+}
+
+body {
+  font-weight: 400;
+}
+
+h1,
+span.name.clip {
+  font-weight: 900;
+}
+
+h2 {
+  font-weight: 800;
+}
+
+h3,
+strong {
+  font-weight: 700;
+}
+
+h4 {
+  font-weight: 600;
+}
+
+h5,
+p {
+  font-weight: 500;
+}
+
+h6 {
+  font-weight: 400;
+}
+
 /**
  * Colors
  *
@@ -152,6 +235,6 @@
 }
 
 /* 重点 */
-    strong {
-      color: var(--main-color);
-    }
+strong {
+  color: var(--main-color);
+}

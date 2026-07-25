@@ -6,6 +6,7 @@ import {
 import {
   NolebaseHighlightTargetedHeading,
 } from '@nolebase/vitepress-plugin-highlight-targeted-heading/client'
+import { Analytics } from '@vercel/analytics/vue'
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import AppearanceToggle from './components/AppearanceToggle.vue'
@@ -13,14 +14,13 @@ import AppFooter from './components/AppFooter.vue'
 import CopyrightInfo from './components/CopyrightInfo.vue'
 import FontSwitcher from './components/FontSwitcher/FontSwitcher.vue'
 import PageInfo from './components/PageInfo.vue'
-import { Analytics } from '@vercel/analytics/vue';
 
 const { Layout } = DefaultTheme
-const { frontmatter } = useData()
+const { frontmatter, theme } = useData()
 </script>
 
 <template>
-  <Analytics />
+  <Analytics v-if="theme.enableAnalytics" />
   <AppearanceToggle>
     <Layout>
       <template #doc-before>
@@ -36,19 +36,11 @@ const { frontmatter } = useData()
       </template>
       <template #nav-bar-content-after>
         <NolebaseEnhancedReadabilitiesMenu />
-        <FontSwitcher />
+        <FontSwitcher v-if="theme.enableFontSwitcher" />
       </template>
       <template #nav-screen-content-after>
         <NolebaseEnhancedReadabilitiesScreenMenu />
       </template>
-      <Analytics />
     </Layout>
   </AppearanceToggle>
 </template>
-
-<style>
-:root {
-  --vp-font-family-base: sans-serif;
-  --vp-font-family-mono: monospace;
-}
-</style>

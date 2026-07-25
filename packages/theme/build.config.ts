@@ -25,12 +25,6 @@ export default defineBuildConfig({
       pattern: ['**/*.vue'],
       loaders: ['vue'],
     },
-    {
-      builder: 'mkdist',
-      input: './public',
-      outDir: './dist',
-      pattern: ['**/*'],
-    },
   ],
   declaration: true,
   clean: true,

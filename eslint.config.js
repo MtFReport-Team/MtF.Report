@@ -6,7 +6,8 @@ export default antfu({
   typescript: true,
   vue: true,
   ignores: [
-    '**/*/md',
+    '**/*.md',
+    '**/dist/**',
     '**/*.yaml',
     '**/*.yml',
   ],

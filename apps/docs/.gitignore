@@ -12,5 +12,5 @@ dist
 dist-ssr
 *.local
 
-docs/.vitepress/cache
-components.d.ts
+.vitepress/cache
+.vitepress/components.d.ts

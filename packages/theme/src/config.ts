@@ -21,6 +21,8 @@ import { useThemeContext } from './utils/themeContext'
 export interface PjtsThemeConfig extends DefaultTheme.Config {
   enableChangeLog?: boolean
   enableSuggestionBox?: boolean
+  enableAnalytics?: boolean
+  enableFontSwitcher?: boolean
   enableDisclaimer?: boolean
   disclaimerPaths?: DisclaimerPathConfig[]
   disclaimerSummaryHtml?: string
@@ -38,7 +40,7 @@ export interface PjtsThemeConfig extends DefaultTheme.Config {
   sitemap?: {
     hostname: string
   }
-  fontsBaseUrl: string
+  fontsBaseUrl?: string
 }
 
 // 从文件系统读取 Markdown 文件内容
@@ -72,6 +74,7 @@ function genConfig() {
   const themeConfig = useThemeContext()
   const {
     siteTitle,
+    siteDescription,
     githubRepoLink,
     nav,
     siteLogo,
@@ -79,7 +82,8 @@ function genConfig() {
     baseUrl = '/',
     enableChangeLog = true,
     enableSuggestionBox = true,
-    sitePattern,
+    enableAnalytics = false,
+    enableFontSwitcher = false,
     org,
     HideReadingTime,
     HideLastUpdated,
@@ -98,6 +102,7 @@ function genConfig() {
   return defineConfigWithTheme<PjtsThemeConfig>({
     lang: 'zh-CN',
     title: siteTitle,
+    description: siteDescription,
     base: baseUrl,
     sitemap: {
       hostname: hostName,
@@ -149,6 +154,8 @@ function genConfig() {
       HideLastUpdated,
       HideAuthors,
       enableSuggestionBox,
+      enableAnalytics,
+      enableFontSwitcher,
       enableChangeLog,
       // https://vitepress.dev/reference/default-theme-config
       siteTitle: SiteTitle,
@@ -253,7 +260,7 @@ function genConfig() {
         // }),
         Components({
           dirs: [
-            'docs/.vitepress/theme/components',
+            resolve(process.cwd(), rootDir, '.vitepress/theme/components'),
             resolve(
               typeof dirname(fileURLToPath(import.meta.url)) === 'string'
                 ? dirname(fileURLToPath(import.meta.url))

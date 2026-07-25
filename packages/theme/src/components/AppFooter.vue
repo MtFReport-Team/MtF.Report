@@ -3,7 +3,8 @@ import type { PjtsThemeConfig } from '../config'
 import { NolebaseGitChangelog } from '@nolebase/vitepress-plugin-git-changelog/client'
 import { useData, useRoute } from 'vitepress'
 import { ref, watch } from 'vue'
-import { AppSBox, Disclaimer } from '../components'
+import AppSBox from './AppSBox.vue'
+import Disclaimer from './Disclaimer.vue'
 
 const route = useRoute()
 const { theme } = useData<PjtsThemeConfig>()

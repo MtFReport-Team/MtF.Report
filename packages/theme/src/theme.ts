@@ -9,7 +9,6 @@ import {
   NolebaseGitChangelogPlugin,
 } from '@nolebase/vitepress-plugin-git-changelog/client'
 import DefaultTheme from 'vitepress/theme-without-fonts'
-import { onMounted } from 'vue'
 
 import Layout from './Layout.vue'
 import './style.css'

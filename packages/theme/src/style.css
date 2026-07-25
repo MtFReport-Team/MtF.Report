@@ -1,0 +1,4 @@
+:root {
+  --vp-font-family-base: var(--main-font, sans-serif);
+  --vp-font-family-mono: monospace;
+}

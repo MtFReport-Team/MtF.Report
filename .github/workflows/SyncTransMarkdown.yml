@@ -18,10 +18,10 @@ jobs:
 
       - name: Copy and commit file
         run: |
-          mkdir -p example/docs/zh-cn/references
-          cp temp_notes/trans.md example/docs/zh-cn/references/sbchild.md
+          mkdir -p apps/docs/zh-cn/references
+          cp temp_notes/trans.md apps/docs/zh-cn/references/sbchild.md
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add example/docs/zh-cn/references/sbchild.md
+          git add apps/docs/zh-cn/references/sbchild.md
           git commit -m "chore: sync sbchild.md from sb-child/notes" || echo "No changes"
           git push

@@ -59,6 +59,6 @@
   "skipCi": true,
   "repoType": "github",
   "repoHost": "https://github.com",
-  "projectName": "vitepress-theme-project-trans",
-  "projectOwner": "mtfreport"
+  "projectName": "MtF.Report",
+  "projectOwner": "MtFReport-Team"
 }

@@ -12,6 +12,30 @@ MtF.Report 是一个致力于研究与支持中国青少年跨性别女性（MtF
 
 本项目贡献者包括跨性别者等多元文化群体，请在贡献时尊重她们，使用友善礼貌的词语。
 
+## 仓库结构
+
+仓库已经按 pnpm workspace 拆分为两部分：
+
+- `apps/docs`：MtF.Report 的 VitePress 文档站、各语言内容和品牌资源。
+- `packages/theme`：文档站使用的 VitePress 主题、组件和构建配置。
+
+完整的模块职责、依赖方向与运行链路见 [ARCHITECTURE.md](./ARCHITECTURE.md)。
+
+## 本地开发
+
+```bash
+pnpm install
+pnpm dev
+```
+
+构建、代码检查和类型检查分别使用：
+
+```bash
+pnpm build
+pnpm lint
+pnpm typecheck
+```
+
 <div align="center">
   <img src="https://komarev.com/ghpvc/?username=mtfreport" style="display:inline-block;vertical-align:middle;" />
   <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
@@ -27,7 +51,7 @@ MtF.Report 是一个致力于研究与支持中国青少年跨性别女性（MtF
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://chiyu.it"><img src="https://avatars.githubusercontent.com/u/109492503?v=4?s=100" width="100px;" alt="池鱼鱼"/><br /><sub><b>池鱼鱼</b></sub></a><br /><a href="https://github.com/mtfreport/vitepress-theme-project-trans/commits?author=kazukokawagawa" title="Code">💻</a> <a href="#translation-kazukokawagawa" title="Translation">🌍</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://chiyu.it"><img src="https://avatars.githubusercontent.com/u/109492503?v=4?s=100" width="100px;" alt="池鱼鱼"/><br /><sub><b>池鱼鱼</b></sub></a><br /><a href="https://github.com/MtFReport-Team/MtF.Report/commits?author=kazukokawagawa" title="Code">💻</a> <a href="#translation-kazukokawagawa" title="Translation">🌍</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/CodingXiaoheng"><img src="https://avatars.githubusercontent.com/u/216361016?v=4?s=100" width="100px;" alt="CodingXiaoheng"/><br /><sub><b>CodingXiaoheng</b></sub></a><br /><a href="#content-CodingXiaoheng" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/FengzihangCode"><img src="https://avatars.githubusercontent.com/u/91676896?v=4?s=100" width="100px;" alt="DannyFeng"/><br /><sub><b>DannyFeng</b></sub></a><br /><a href="#translation-FengzihangCode" title="Translation">🌍</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Hoshroin"><img src="https://avatars.githubusercontent.com/u/31343983?v=4?s=100" width="100px;" alt="Hosh"/><br /><sub><b>Hosh</b></sub></a><br /><a href="#research-Hoshroin" title="Research">🔬</a> <a href="#promotion-Hoshroin" title="Promotion">📣</a></td>
@@ -65,4 +89,4 @@ MtF.Report 是一个致力于研究与支持中国青少年跨性别女性（MtF
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
-该项目采用了 Project Trans 的 VitePress 主题 <https://github.com/project-trans/vitepress-theme-project-trans>
+该项目采用并维护了基于 Project Trans VitePress 主题的本地主题包：<https://github.com/project-trans/vitepress-theme-project-trans>

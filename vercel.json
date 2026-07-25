@@ -1,7 +1,7 @@
 {
   "cleanUrls": true,
   "framework": "vitepress",
-  "outputDirectory": "example/dist",
+  "outputDirectory": "apps/docs/dist",
   "rewrites": [
     { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
     { "source": "/feed.xml", "destination": "/feed.xml" },

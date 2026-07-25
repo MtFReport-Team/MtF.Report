@@ -15,17 +15,17 @@ const nav: DefaultTheme.NavItem[] = [
 //      {
 //        text: '校园版块投稿指南',
 //        link: '/contributor-guide/doc.md',
- //     },
- //     {
- //       text: '其他投稿指南',
- //       link: '/contributor-guide/other.md',
- //     },
- //     {
- //       text: '校园版块贡献模板',
- //       link: '/contributor-guide/docTemplate.md',
+  //     },
+  //     {
+  //       text: '其他投稿指南',
+  //       link: '/contributor-guide/other.md',
+  //     },
+  //     {
+  //       text: '校园版块贡献模板',
+  //       link: '/contributor-guide/docTemplate.md',
   //    },
   //  ],
-  //},
+  // },
 ]
 
 const baseConfig = {
@@ -33,7 +33,7 @@ const baseConfig = {
   useFolderTitleFromIndexFile: true,
   useFolderLinkFromIndexFile: true,
   collapsed: true,
-  documentRootPath: '/docs',
+  documentRootPath: '/',
 } satisfies Partial<SidebarOptions>
 
 const sidebarOptions = [
@@ -45,43 +45,45 @@ const sidebarOptions = [
   },
   {
     ...baseConfig,
-    scanStartPath: 'en',       // 扫描 docs/en 下的 md
-    resolvePath: '/en/',       // 映射到 /en/ 下
+    scanStartPath: 'en',
+    resolvePath: '/en/',
     sortMenusByFrontmatterOrder: true,
   },
   {
     ...baseConfig,
-    scanStartPath: 'zh-tw',       // 扫描 docs/en 下的 md
-    resolvePath: '/zh-tw/',       // 映射到 /en/ 下
+    scanStartPath: 'zh-tw',
+    resolvePath: '/zh-tw/',
     sortMenusByFrontmatterOrder: true,
-  }
+  },
 ]
 
 const themeConfig: ThemeContext = {
   siteTitle: 'MtF.Report',
   siteDescription: '让世界看见她们',
+  hostName: 'https://mtf.report',
   // baseUrl: '/',
   /** Repo */
-  githubRepoLink: 'https://github.com/mtfreport/vitepress-theme-project-trans',
+  githubRepoLink: 'https://github.com/MtFReport-Team/MtF.Report',
   /** vitepress 根目录 */
-  rootDir: 'docs',
+  rootDir: '.',
   /** 文档所在目录（目前似未使用此项） */
   include: ['zh-cn', 'en'],
   nav,
   sidebarOptions,
   // enableChangeLog: false,
   enableSuggestionBox: false,
+  enableAnalytics: true,
   HideReadingTime: true, /* 隐藏字数和预计阅读时间 */
   HideLastUpdated: true, /* 隐藏最后更新时间 */
-  //HideAuthors: true, /* 隐藏作者信息 */
+  // HideAuthors: true, /* 隐藏作者信息 */
   // fontsBaseUrl: 'http://localhost:8788', // For local development with wrangler pages dev
   disclaimerPaths: [
     {
       path: '/zh-cn/',
       summaryHtml: 'MtF.Report 中的内容，仅供参考。可能存在过时或不准确的信息，请谨慎甄别。',
-//      detailHtml: '<p>RLE.wiki「大学指南」中的内容，仅供参考。可能存在过时或不准确的信息，请谨慎甄别。</p>'
-//        + '<p>「大学指南」板块中的内容，多数来自于读者投稿，并经编辑简单整理和形式审查后登载，主要体现其投稿者主观观点。不代表 RLE.wiki 编辑团队及我们的任何相关维护人员立场。</p>'
-//        + '<p>若存在任何有误或不当内容，请联系 <a href="mailto:rlewiki@project-trans.org">rlewiki@project-trans.org</a>。</p>',
+      //      detailHtml: '<p>RLE.wiki「大学指南」中的内容，仅供参考。可能存在过时或不准确的信息，请谨慎甄别。</p>'
+      //        + '<p>「大学指南」板块中的内容，多数来自于读者投稿，并经编辑简单整理和形式审查后登载，主要体现其投稿者主观观点。不代表 RLE.wiki 编辑团队及我们的任何相关维护人员立场。</p>'
+      //        + '<p>若存在任何有误或不当内容，请联系 <a href="mailto:rlewiki@project-trans.org">rlewiki@project-trans.org</a>。</p>',
     },
   ],
   enableDisclaimer: true,
@@ -119,10 +121,14 @@ const themeConfig: ThemeContext = {
 export default withThemeContext(themeConfig, () => {
   return {
     ...genConfig(),
-    outDir: '../dist',
+    ignoreDeadLinks: [
+      /^\.\/(?:README|sleep|emo|medicine2|trans-story)$/,
+      /^\.\/(?:mention|moments)\//,
+    ],
+    outDir: './dist',
     sitemap: {
-    hostname: 'https://mtf.report',
-    lastmodDateOnly: true
-  }
+      hostname: 'https://mtf.report',
+      lastmodDateOnly: true,
+    },
   }
 })
